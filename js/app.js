@@ -4,7 +4,7 @@
 const cards = [ "fa fa-diamond","fa fa-paper-plane-o",
 				"fa fa-anchor","fa fa-bolt","fa fa-cube",
 				"fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
-
+const doubleCards = cards.concat(cards);
 /*
  * 显示页面上的卡片
  *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
