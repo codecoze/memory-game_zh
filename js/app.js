@@ -27,7 +27,16 @@ function shuffle(array) {
     return array;
 }
 
-
+const dbCards = shuffle(doubleCards);
+const deck = document.querySelector(".deck");
+dbCards.forEach(function(card){ 
+    var newLi = document.createElement('li');
+	newLi.className = "card";
+	var newI = document.createElement('i');
+	newI.className = card;
+	newLi.appendChild(newI);
+    deck.appendChild(newLi);
+});// end forEach
 
 /*
  * 设置一张卡片的事件监听器。 如果该卡片被点击：
