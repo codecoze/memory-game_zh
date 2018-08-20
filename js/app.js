@@ -1,7 +1,9 @@
 /*
  * 创建一个包含所有卡片的数组
  */
-
+const cards = [ "fa fa-diamond","fa fa-paper-plane-o",
+				"fa fa-anchor","fa fa-bolt","fa fa-cube",
+				"fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 
 /*
  * 显示页面上的卡片
