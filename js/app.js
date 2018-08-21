@@ -81,7 +81,7 @@ deck.addEventListener("click",function(evt){
 
 //-----------------检查是否匹配函数----------------------
 function checkCard(){
-    if (openCards.length ==2){
+    if (openCards.length === 2){
         let firstCard = openCards[0];
         let secondCard = openCards[1];
 
