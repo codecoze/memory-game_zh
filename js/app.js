@@ -121,3 +121,36 @@ function addMove(){
     moveCount++;
     moves.innerHTML = moveCount;
 }// end adddMove
+
+//------------------------计时器--------------------------------
+let int;
+let n=0 ;
+function startTime(){
+    int= setInterval("timeMachine()",1000);
+
+} //end startTime
+
+
+//timeMachine函数参考https://blog.csdn.net/u013778905/article/details/51598996
+function timeMachine(){
+    n++;
+    let h = parseInt(n/3600);
+    let m = parseInt(n/60);
+    let s = parseInt(n%60);
+    // let timer = document.querySelector(".timeset").innerHTML;
+    // timer = toDub(h)+":"+toDub(m)+":"+toDub(s);
+    let x =  toDub(h)+":"+toDub(m)+":"+toDub(s);
+    $(".timeset").text(x);
+   // console.log();
+
+}// end timeMachine
+
+function toDub(n){
+    return n<10?"0"+n:""+n;
+}// end toDub
+
+function endTime(){
+    clearInterval(int);
+}// end endTime
+
+

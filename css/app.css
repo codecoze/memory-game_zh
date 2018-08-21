@@ -107,3 +107,7 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.score-panel .timeset {
+    margin-left: 1.5em;
+}
