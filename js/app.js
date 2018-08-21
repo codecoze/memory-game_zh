@@ -110,6 +110,7 @@ function checkCard(){
             },800)
         }
         addMove();//增加move值
+        starScore();
         
     }
     
@@ -153,4 +154,28 @@ function endTime(){
     clearInterval(int);
 }// end endTime
 
+//-------------------------得分函数-----------------------
+
+function starScore(){
+    let move = document.querySelector('.moves');
+    let steps = Number(move.innerHTML);
+    star(steps);
+
+
+}// end starScore
+
+function star(steps){
+    let getStar = document.querySelectorAll('.stars li i');
+   // console.log(getStar);
+    if(steps>8 && steps<=16){
+        getStar[2].classList.remove("fa-star");
+        getStar[2].classList.add("fa-star-o");
+    }else if(steps>16){
+        getStar[2].classList.remove("fa-star");
+        getStar[2].classList.add("fa-star-o");
+        getStar[1].classList.remove("fa-star");
+        getStar[1].classList.add("fa-star-o");
+    }
+
+}// end star
 
