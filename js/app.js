@@ -91,6 +91,7 @@ function checkCard(){
                 for (let i = 0;i< openCards.length;i++){
                     openCards[i].classList.remove("open","show");
                     openCards[i].classList.add("match");
+                    matchs.push(openCards[i]);
                     //console.log(openCards[i].classList);
                 }
               	if(matchs.length == 16){
