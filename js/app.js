@@ -72,8 +72,7 @@ deck.addEventListener("click",function(evt){
     if(target.nodeName.toLowerCase() ==='li'){
         openShow();//显示卡片符号
         openCards.push(target);//加入openCards数组
-       
-
+        checkCard();
     }
 
 })// end addEventListener
