@@ -8,6 +8,7 @@ const doubleCards = cards.concat(cards);
 let flag = false;
 let openCards = [];//建立openCards的空数组
 let moveCount = 0;
+let matchs = [];
 /*
  * 显示页面上的卡片
  *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
@@ -92,7 +93,9 @@ function checkCard(){
                     openCards[i].classList.add("match");
                     //console.log(openCards[i].classList);
                 }
-              
+              	if(matchs.length == 16){
+                      end();
+                };  
                 openCards.splice(0, openCards.length);
 
             },500)
@@ -179,3 +182,9 @@ function star(steps){
 
 }// end star
 
+//-------------------------卡片全部匹配-----------------------------------
+function end(){
+    endTime();
+    alert('Congratulation!You won!');
+    
+}// end end
