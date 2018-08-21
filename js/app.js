@@ -48,3 +48,12 @@ dbCards.forEach(function(card){
  *    + 增加移动计数器并将其显示在页面上（将这个功能放在你从这个函数中调用的另一个函数中）
  *    + 如果所有卡都匹配，则显示带有最终分数的消息（将这个功能放在你从这个函数中调用的另一个函数中）
  */
+
+//---------------------------显示卡片符号函数-----------------------------
+function openShow(){
+    let eclassName = event.target.classList;
+    if (eclassName.contains("card") && !eclassName.contains("match")){
+        eclassName.add("open","show");
+    }
+
+ }// end openShow
