@@ -5,6 +5,7 @@ const cards = [ "fa fa-diamond","fa fa-paper-plane-o",
 				"fa fa-anchor","fa fa-bolt","fa fa-cube",
 				"fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 const doubleCards = cards.concat(cards);
+let flag = false;
 /*
  * 显示页面上的卡片
  *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
@@ -57,3 +58,20 @@ function openShow(){
     }
 
  }// end openShow
+
+ //----------------------建立事件监听器------------------------------
+deck.addEventListener("click",function(evt){
+    if (flag == false){
+        startTime();//计时器开启
+        flag = true;
+    }
+
+    let e = evt || window.event;
+    let target = e.target || event.srcElement;
+    if(target.nodeName.toLowerCase() ==='li'){
+        openShow();//显示卡片符号
+       
+
+    }
+
+})// end addEventListener
