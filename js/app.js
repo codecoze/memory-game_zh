@@ -7,6 +7,7 @@ const cards = [ "fa fa-diamond","fa fa-paper-plane-o",
 const doubleCards = cards.concat(cards);
 let flag = false;
 let openCards = [];//建立openCards的空数组
+let moveCount = 0;
 /*
  * 显示页面上的卡片
  *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
@@ -108,8 +109,15 @@ function checkCard(){
 
             },800)
         }
-        
+        addMove();//增加move值
         
     }
     
 }//end checkCard
+
+//-------------------addMove函数---------------------------------
+function addMove(){
+    let moves = document.querySelector(".moves");
+    moveCount++;
+    moves.innerHTML = moveCount;
+}// end adddMove
