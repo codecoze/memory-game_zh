@@ -6,6 +6,7 @@ const cards = [ "fa fa-diamond","fa fa-paper-plane-o",
 				"fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"];
 const doubleCards = cards.concat(cards);
 let flag = false;
+let openCards = [];//建立openCards的空数组
 /*
  * 显示页面上的卡片
  *   - 使用下面提供的 "shuffle" 方法对数组中的卡片进行洗牌
@@ -75,3 +76,40 @@ deck.addEventListener("click",function(evt){
     }
 
 })// end addEventListener
+
+//-----------------检查是否匹配函数----------------------
+function checkCard(){
+    if (openCards.length ==2){
+        let firstCard = openCards[0];
+        let secondCard = openCards[1];
+
+        if (firstCard.firstChild.className == secondCard.firstChild.className){
+            
+            setTimeout(function (){
+                for (let i = 0;i< openCards.length;i++){
+                    openCards[i].classList.remove("open","show");
+                    openCards[i].classList.add("match");
+                    //console.log(openCards[i].classList);
+                }
+              
+                openCards.splice(0, openCards.length);
+
+            },500)
+        }else {
+            
+            setTimeout(function (){
+                // firstCard.classList.remove("open","show");
+                // secondCard.classList.remove("open","show");
+                for (let i = 0;i< openCards.length;i++){
+                    openCards[i].classList.remove("open","show");
+                    //console.log(openCards[i]);
+                }
+                openCards.splice(0, openCards.length);
+
+            },800)
+        }
+        
+        
+    }
+    
+}//end checkCard
