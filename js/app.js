@@ -212,3 +212,7 @@ function end(){
 
 
  }//end restart
+
+document.querySelector('.restart').addEventListener('click', function() {
+    restart();
+})
