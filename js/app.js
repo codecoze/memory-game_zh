@@ -188,3 +188,27 @@ function end(){
     alert('Congratulation!You won!');
     
 }// end end
+
+//-------------------------restart 函数----------------------------------
+ function restart(){
+    let cards = shuffle(doubleCards);
+    moveCount = 0;
+    matchs = [];
+    endTime();
+    $(".timeset").text("00:00:00");
+    document.querySelector(".moves").innerHTML = moveCount;
+    let star = document.querySelectorAll(".stars li i");
+    for(let i=0;i<star.length;i++){
+        star[i].classList.remove('fa-star-o');
+        star[i].classList.add('fa-star');
+    }
+
+    let card=document.querySelectorAll('.card');
+    card.forEach(function (card,index) {
+        card.classList.remove("match","open","show");
+        card.querySelector('i').className = cards[index];
+    })
+
+
+
+ }//end restart
