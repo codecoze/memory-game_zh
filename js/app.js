@@ -189,6 +189,7 @@ function end(){
     // alert('Congratulation!You won!');
     let str = 'Time:'+document.querySelector('.timeset').innerHTML+' \n';
     str +='Moves: '+document.querySelector('.moves').innerHTML+'\n ';
+    str +='Do you want to play again?';
     swal({
       title: "Congratulation!You won!",
       text: str,
