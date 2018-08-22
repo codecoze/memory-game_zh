@@ -71,12 +71,14 @@ deck.addEventListener("click",function(evt){
 
     let e = evt || window.event;
     let target = e.target || event.srcElement;
-    if(target.nodeName.toLowerCase() ==='li'){
+    if ($(target).hasClass('open') == false){
+       if(target.nodeName.toLowerCase() ==='li'){
         openShow();//显示卡片符号
         openCards.push(target);//加入openCards数组
         checkCard();
+         }
     }
-
+    
 })// end addEventListener
 
 //-----------------检查是否匹配函数----------------------
