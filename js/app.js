@@ -211,6 +211,8 @@ function end(){
     moveCount = 0;
     matchs = [];
     endTime();
+    flag = false;
+    n = 0;
     $(".timeset").text("00:00:00");
     document.querySelector(".moves").innerHTML = moveCount;
     let star = document.querySelectorAll(".stars li i");
