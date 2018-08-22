@@ -35,7 +35,7 @@ const dbCards = shuffle(doubleCards);
 const deck = document.querySelector(".deck");
 dbCards.forEach(function(card){ 
     var newLi = document.createElement('li');
-	newLi.className = "card";
+	newLi.className = "card animated";
 	var newI = document.createElement('i');
 	newI.className = card;
 	newLi.appendChild(newI);
@@ -57,7 +57,7 @@ dbCards.forEach(function(card){
 function openShow(){
     let eclassName = event.target.classList;
     if (eclassName.contains("card") && !eclassName.contains("match")){
-        eclassName.add("open","show");
+        eclassName.add("flipInY","open","show");
     }
 
  }// end openShow
@@ -71,8 +71,7 @@ deck.addEventListener("click",function(evt){
 
     let e = evt || window.event;
     let target = e.target || event.srcElement;
-    let x = document.querySelectorAll('.open').length;
-    if ($(target).hasClass('open') == false && x<2 ){
+    if ($(target).hasClass('open') == false){
        if(target.nodeName.toLowerCase() ==='li'){
         openShow();//显示卡片符号
         openCards.push(target);//加入openCards数组
@@ -90,31 +89,38 @@ function checkCard(){
 
         if (firstCard.firstChild.className == secondCard.firstChild.className){
             
-            setTimeout(function (){
-                for (let i = 0;i< openCards.length;i++){
-                    openCards[i].classList.remove("open","show");
-                    openCards[i].classList.add("match");
-                    matchs.push(openCards[i]);
-                    //console.log(openCards[i].classList);
-                }
-              	if(matchs.length == 16){
-                      end();
-                };  
-                openCards.splice(0, openCards.length);
-
-            },500)
+            openCards.forEach(function(value){
+                setTimeout(function (){
+                    value.classList.remove("flipInY","open","show");
+                    value.classList.add("bounceIn","match");
+                    matchs.push(value);
+                    console.log(matchs.length);
+                    setTimeout(function(){
+                        value.classList.remove("bounceIn");
+                        if(matchs.length == 16){
+                            end();
+                        };  
+                    },400);
+                },500);
+   
+            });
+            openCards.splice(0, openCards.length);
         }else {
             
-            setTimeout(function (){
-                // firstCard.classList.remove("open","show");
-                // secondCard.classList.remove("open","show");
-                for (let i = 0;i< openCards.length;i++){
-                    openCards[i].classList.remove("open","show");
-                    //console.log(openCards[i]);
-                }
-                openCards.splice(0, openCards.length);
-
-            },800)
+            openCards.forEach(function(value){
+                setTimeout(function (){
+                    value.classList.remove("flipInY","open","show");
+                    value.classList.add("flipOutX");
+                    setTimeout(function(){
+                        value.classList.remove("flipOutX");
+                        value.classList.add("flipInX");
+                    },450);
+                    setTimeout(function(){
+                        value.classList.remove("flipInX");
+                    },801);
+                },800);   
+            });
+            openCards.splice(0, openCards.length);
         }
         addMove();//增加move值
         starScore();
