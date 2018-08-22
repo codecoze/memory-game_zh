@@ -186,7 +186,14 @@ function star(steps){
 //-------------------------卡片全部匹配-----------------------------------
 function end(){
     endTime();
-    alert('Congratulation!You won!');
+    // alert('Congratulation!You won!');
+    let str = 'Time:'+document.querySelector('.timeset').innerHTML+' \n';
+    str +='Moves: '+document.querySelector('.moves').innerHTML+' ';
+    swal({
+      title: "Congratulation!You won!",
+      text: str,
+      icon: "success",
+    });
     
 }// end end
 
