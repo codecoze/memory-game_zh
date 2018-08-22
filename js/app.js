@@ -188,12 +188,20 @@ function end(){
     endTime();
     // alert('Congratulation!You won!');
     let str = 'Time:'+document.querySelector('.timeset').innerHTML+' \n';
-    str +='Moves: '+document.querySelector('.moves').innerHTML+' ';
+    str +='Moves: '+document.querySelector('.moves').innerHTML+'\n ';
     swal({
       title: "Congratulation!You won!",
       text: str,
       icon: "success",
+      buttons: ["Oh noez!","Aww yiss!"],
+    }).then(function(value){
+        if (value) {
+             restart();
+        } else{
+            window.close();
+        }
     });
+    //buttons 的判断 参考了https://blog.csdn.net/T617ing/article/details/80626426
     
 }// end end
 
